@@ -3,36 +3,43 @@
 
 #include <string>
 #include "plotter.hpp"
-#include "hpglstate.hpp"
+
 
 using namespace std;
+class HPGLState;
 
 class HPGLScanner {
 
 	public:	
-		HPGLScanner(Plotter plotter);		
+		HPGLScanner(Plotter * plotter);		
 
 		void scanHPGLCode(string code);
 
-		void setState(HPGLState state);
+		void setState(HPGLState * state);
+
+		void setX(int x);
+
+		void setY(int y);
+
+		void penUp();
+
+		void penDown();
+
+		void moveTo();
+
+		void initialize();
 
 	private:
 		int x;
 
 		int y;
 
-		HPGLState state;
+		HPGLState * state;
 		
-		Plotter plotter;
+		Plotter * plotter;
 
-		void penUp();
 
-		void penDown();
-
-		void moveTo(int x, int y);
-
-		void initialize();
 	
-}
+};
 
 #endif
