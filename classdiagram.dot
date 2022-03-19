@@ -1,0 +1,42 @@
+digraph HPGL {
+
+node [shape="record"]
+
+Plotter [label="{Plotter||void initialize()\nvoid penUp()\nvoid penDown()\nvoid moveTo(int x, int y)}"]
+
+HPGLScanner [label="{HPGLScanner|int x\nint y\nPlotter plotter\nHPGLState state|void scanHPGLCode(string code)\nvoid setState(HPGLState)\nvoid initialize()\nvoid penUp()\nvoid penDown()\nvoid moveTo(int x, int y)}"]
+
+
+
+subgraph clusterStates{
+HPGLState [label="{HPGLState|HPGLScanner scanner|virtual void scan(char code)}"]
+HPGLState_Start
+HPGLState_I
+HPGLState_IN
+HPGLState_P
+HPGLState_PU_PD
+HPGLState_X
+HPGLState_ExpectY
+HPGLState_Y
+HPGLState_ExpectNextX
+HPGLState_Error
+
+}
+
+
+HPGLScanner -> Plotter
+HPGLState -> HPGLScanner
+HPGLScanner -> HPGLState
+
+HPGLState_Start -> HPGLState [arrowhead="empty"]
+HPGLState_I -> HPGLState [arrowhead="empty"]
+HPGLState_IN -> HPGLState [arrowhead="empty"]
+HPGLState_P -> HPGLState [arrowhead="empty"]
+HPGLState_PU_PD -> HPGLState [arrowhead="empty"]
+HPGLState_X -> HPGLState [arrowhead="empty"]
+HPGLState_ExpectY -> HPGLState [arrowhead="empty"]
+HPGLState_Y -> HPGLState [arrowhead="empty"]
+HPGLState_ExpectNextX -> HPGLState [arrowhead="empty"]
+HPGLState_Error -> HPGLState [arrowhead="empty"]
+
+}
