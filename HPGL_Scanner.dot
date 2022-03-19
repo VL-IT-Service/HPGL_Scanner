@@ -1,0 +1,31 @@
+digraph HPGL {
+rankdir="LR"
+Start
+I
+IN
+P
+PU_PD
+X
+ExpectY
+Y
+ExpectNextX
+Error
+
+
+Start -> I [label="I"] 
+I -> IN [label="N"]
+IN-> Start [label="; / initialize()"]
+Start -> P [label="P"]
+P -> PU_PD [label="U / penUp()\nP / penDown()"]
+PU_PD -> Start [label=";"]
+PU_PD -> X [label="<digit> / X = <digit>"]
+X -> X [label="<digit> / X = X*10 + <digit>"]
+X -> ExpectY [label=","]
+ExpectY -> Y [label="<digit> / Y = <digit>"]
+Y -> Y [label="<digit> / Y = Y*10 + <digit>"]
+Y -> Start [label="; / move(X,Y)"]
+Y -> ExpectNextX [label=", / move(X,Y)"]
+ExpectNextX -> X [label="<digit> / X = <digit>"]
+Error -> Start [label=";"]
+Error -> Error [label="[^;]"]
+}
