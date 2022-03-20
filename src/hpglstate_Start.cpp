@@ -15,6 +15,9 @@
 				case 'P':
 					this->scanner->setState(new HPGLState_P(this->scanner));
 					break;
+				case ';':
+					this->scanner->setState(new HPGLState_Start(this->scanner));
+					break;
 				default:
 					this->scanner->setState(new HPGLState_Error(this->scanner));	
 			}

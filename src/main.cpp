@@ -8,7 +8,7 @@ int main (int argc, char* argv []){
 
 	HPGLScanner * s = new HPGLScanner(p);
 
-	s->scanHPGLCode("IN;PU23,24;PD;PU230,240,10,12;");
+	s->scanHPGLCode("IN;PU23,24;PD;FritzFuchs;PU230,240,10,12;");
 	
 	return 0;
 }

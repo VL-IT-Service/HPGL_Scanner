@@ -4,7 +4,7 @@ node [shape="record"]
 
 Plotter [label="{Plotter||void initialize()\nvoid penUp()\nvoid penDown()\nvoid moveTo(int x, int y)}"]
 
-HPGLScanner [label="{HPGLScanner|int x\nint y\nPlotter plotter\nHPGLState state|void scanHPGLCode(string code)\nvoid setState(HPGLState)\nvoid initialize()\nvoid penUp()\nvoid penDown()\nvoid moveTo(int x, int y)}"]
+HPGLScanner [label="{HPGLScanner|int x\nint y\nPlotter plotter\nHPGLState state|void scanHPGLCode(string code)\nvoid setState(HPGLState)\nvoid initialize()\nvoid penUp()\nvoid penDown()\nvoid moveTo()\nint getX()\nvoid setX(int x)\nint getY()\nvoid setY(int y)}"]
 
 
 
