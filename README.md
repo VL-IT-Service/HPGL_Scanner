@@ -1,7 +1,7 @@
 # HPGL_Scanner
 A C++ based Scanner for HPGL using a state design pattern
 
-Version 1 will implement:
+Version 1 implements:
 
 IN; (initialize plotter)
 
