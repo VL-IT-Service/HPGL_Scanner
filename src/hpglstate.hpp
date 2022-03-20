@@ -10,11 +10,11 @@ class HPGLState {
 	public:	
 		HPGLState(HPGLScanner * scanner);		
 
-		void scan(char code);
+		virtual void scan(char code) = 0;
 
 		void setScanner(HPGLScanner *  scanner);
 
-	private:
+	protected:
 		HPGLScanner * scanner;
 
 		

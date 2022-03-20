@@ -1,5 +1,7 @@
 #include "hpglscanner.hpp"
 #include "hpglstate.hpp"
+#include "hpglstate_Start.hpp"
+
 #include <cctype>
 
 #include <iostream>
@@ -8,9 +10,7 @@ using namespace std;
 
 HPGLScanner::HPGLScanner(Plotter * plotter){
 	this->plotter = plotter;
-	// TODO
-	//this->state = new HPGLState_Start(this);
-	this->state = new HPGLState(this);
+	this->state = new HPGLState_Start(this);
 	this->x = 0;
 	this->y = 0;
 };
@@ -24,6 +24,7 @@ void HPGLScanner::scanHPGLCode(string code){
 }
 
 void HPGLScanner::setState(HPGLState * state){
+	delete(this->state);
 	this->state = state;
 }
 
@@ -49,6 +50,14 @@ void HPGLScanner::setX(int x){
 
 void HPGLScanner::setY(int y){
 	this->y = y;
+}
+
+int HPGLScanner::getX(){
+	return this->x;
+}
+
+int HPGLScanner::getY(){
+	return this->y;
 }
 
 

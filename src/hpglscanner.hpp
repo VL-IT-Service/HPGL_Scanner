@@ -21,6 +21,10 @@ class HPGLScanner {
 
 		void setY(int y);
 
+		int getX();
+
+		int getY();
+
 		void penUp();
 
 		void penDown();
